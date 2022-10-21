@@ -6,9 +6,7 @@ const mongoose = require('mongoose');
 // todos os jogos
 const findAllJogosController = async (req, res) => {
   const todosJogos = await jogoService.findAllJogosService();
-  if (!todosJogos) {
-    return res.status(400).send({ message: 'verifique o id de jogo' });
-  }
+
 
 
   res.send(todosJogos);

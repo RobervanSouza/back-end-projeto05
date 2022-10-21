@@ -1,14 +1,14 @@
 const express = require('express');
-const port = 3000;
-const app = express();
 const cors = require('cors');
 const routes = require('./src/routes/jogos.route');
+const connectToDatabase = require('./src/database/dataBase');
+const port = 3000;
+const app = express();
 app.use(express.json());
 app.use(cors());
-
 app.use('/Jogos', routes);
 
-
+connectToDatabase();
 
 
 
