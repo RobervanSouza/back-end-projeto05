@@ -3,13 +3,13 @@ const mongoose = require('mongoose');
 const connectToDatabase = () => {
   mongoose
     .connect(
-      'mongodb+srv://alice:admin@jogoxbox.98uba48.mongodb.net/?retryWrites=true&w=majority',
+     process.env.URI_DATABASE,
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
       },
     )
-    .then(() => console.log('Mongoose Conectado'))
+    .then(() => console.log('Mongoose Atlas Conectado'))
     .catch((erro) =>
       console.log(`Error ao conectar como mongoose Erro: ${erro}`),
     );
