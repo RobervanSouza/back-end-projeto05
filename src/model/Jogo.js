@@ -11,7 +11,7 @@ const JogoSchema = new mongooose.Schema({
   gameplay: { type: String, required: true },
 });
 
-const Jogo = mongooose.model('xboxjogos', JogoSchema);
+const Jogo = mongooose.model('jogos', JogoSchema);
 
 module.exports = Jogo;
 

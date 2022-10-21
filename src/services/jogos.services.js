@@ -6,12 +6,13 @@ const Jogos = require("../model/Jogo")
 
 // todos os jogos
 const findAllJogosService = async () => {
-const jogos = await Jogos.find();
-    return jogos;
+const jogos1 = await Jogos.find();
+    return jogos1;
 }
 // id do jogos
-const findByIdJogoService = (procuraId) => {
-  return Jogos.find((jogo) => jogo.id === procuraId);
+const findByIdJogoService = async (procuraId) => {
+  const jogo = await Jogos.findById(procuraId)
+  return jogo;
 };
 // cria jogo
 const createJogoService = (novoJogo) => {

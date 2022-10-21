@@ -12,16 +12,16 @@ const findAllJogosController = async (req, res) => {
   res.send(todosJogos);
 };
 // id  de jogo
-const findByIdJogoController = (req, res) => {
-  const procuraId = Number(req.params.id);
+const findByIdJogoController = async (req, res) => {
+  const procuraId = req.params.id;
  
-  if(!procuraId){
+  if(!mongoose.Types.ObjectId.isValid(procuraId)){
     return res
     .status(400)
     .send({ message: 'verifique o id de jogo'})
   }
 
-  const idEncontrado = jogoService.findByIdJogoService(procuraId);
+  const idEncontrado = await jogoService.findByIdJogoService(procuraId);
 if (!idEncontrado) {
   return res.status(404).send({ message: 'id não encontrado' });
 }

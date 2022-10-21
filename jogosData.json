@@ -1,10 +1,10 @@
 [
   {
 
-   "nome":"qdqdf",
+  "nome":"qdqdf",
   "categoria":"ddd",
   "description":"dd",
-   "imageUrl":"ss",
+  "imageUrl":"ss",
   "ano":55,
   "score":5,
   "treiler":"d",
@@ -22,9 +22,10 @@
   "treiler":"d",
   "gameplay":"dd"
   },
+  
 
   {
-    
+ 
    "nome":"qdqdf",
   "categoria":"ddd",
   "description":"dd",
@@ -34,6 +35,7 @@
   "treiler":"d",
   "gameplay":"dd"
   }
+ 
 
 ]
 
