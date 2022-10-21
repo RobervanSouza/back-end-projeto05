@@ -7,11 +7,11 @@ const JogoSchema = new mongooose.Schema({
   imageUrl: { type: String, required: true },
   ano: { type: Number, required: true },
   score: { type: Number, required: true },
-  trailer: { type: String, required: true },
+  treiler: { type: String, required: true },
   gameplay: { type: String, required: true },
 });
 
-const Jogo = mongooose.model('jogos', JogoSchema);
+const Jogos = mongooose.model('jogos', JogoSchema);
 
-module.exports = Jogo;
+module.exports = Jogos;
 

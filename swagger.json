@@ -1,0 +1,236 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Xbox jogo",
+    "description": "API para CRUD para exibição de jogos",
+    "termsOfService": "",
+    "contact": {
+      "email": "Robervan e Felipe"
+    },
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000/Jogos",
+      "description": "API de teste"
+    },
+    {
+      "url": "falta Heroko",
+      "description": "API de produção"
+    }
+  ],
+  "paths": {
+    "/todos-jogos": {
+      "get": {
+        "sumamry": "lista todos os jogos",
+        "description": "Rota responsavel por todos os jogos",
+        "tags": ["Jogos"],
+        "responses": {
+          "404": {
+            "description": "não encontrado"
+          },
+          "200": {
+            "description": "todos os jogos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Jogos"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/jogo/{id}": {
+      "get": {
+        "sumamry": "lista jogo por ID",
+        "description": "Rota responsavel pelo ID",
+        "tags": ["Jogos"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do jogo",
+            "required": true
+          }
+        ],
+        "responses": {
+          "404": {
+            "description": "não encontrado"
+          },
+          "200": {
+            "description": "jogo por ID",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Jogos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/create": {
+      "post": {
+        "sumamry": " cadastrar jogo",
+        "description": "Rota responsavel por criar jogo",
+        "tags": ["Jogos"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Jogos"
+              },
+              "examples": {
+                "Jogos": {
+                  "value": {
+                    "nome": "teste swagger",
+                    "categoria": "ddd",
+                    "description": "dd",
+                    "imageUrl": "ss",
+                    "ano": 55,
+                    "score": 5,
+                    "treiler": "d",
+                    "gameplay": "dd"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "não foi possível criar jogo"
+          },
+          "201": {
+            "description": "jogo criado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Jogos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/update/{id}": {
+      "put": {
+        "sumamry": "Editar jogo pelo Id",
+        "description": "Rota responsavel por editar jogo",
+        "tags": ["Jogos"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do jogo",
+            "required": true
+          }
+        ],
+        "requestBody":{
+          "content":{
+            "application/json":{
+              "schema":{
+                "$ref": "#/components/schemas/Jogos"
+              },
+              "examples":{
+                "Jogos":{
+                  "value":{
+                    "nome": "editado no codigo",
+                    "categoria": "ddd",
+                    "description": "dd",
+                    "imageUrl": "ss",
+                    "ano": 55,
+                    "score": 5,
+                    "treiler": "d",
+                    "gameplay": "dd"
+                  }
+                }
+              }
+            }
+          }
+        }, 
+        "responses":{
+          "400": {
+            "description": "não foi possível editar jogo"
+          },
+          "200":{
+            "description": "jogo editado com sucesso",
+            "content":{
+              "application/json":{
+                "schema":{
+                  "type": "object",
+                  "$ref": "#/components/schemas/Jogos"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/delete/{id}":{
+      "delete":{
+        "sumamry": "Excluir jogo",
+        "description": "Rota para excluir jogo", 
+        "tags":["Jogos"],
+        "parameters":[
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do jogo para deletar",
+            "required": true
+          }
+        ],
+        "responses":{
+          "400":{
+            "description": "não foi possível excluir jogo"
+          },
+          "200":{
+            "description": "jogo excluído com sucesso"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Jogos": {
+        "type": "object",
+        "properties": {
+          "nome": {
+            "type": "string"
+          },
+          "categoria": {
+            "type": "string"
+          },
+          "description": {
+            "type": "string"
+          },
+          "imageUrl": {
+            "type": "string"
+          },
+          "ano": {
+            "type": "number"
+          },
+          "score": {
+            "type": "number"
+          },
+          "treiler": {
+            "type": "string"
+          },
+
+          "gameplay": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  }
+}

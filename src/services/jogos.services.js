@@ -11,28 +11,23 @@ const jogos1 = await Jogos.find();
 }
 // id do jogos
 const findByIdJogoService = async (procuraId) => {
-  const jogo = await Jogos.findById(procuraId)
-  return jogo;
+  const jogo1 = await Jogos.findById(procuraId)
+  return jogo1;
 };
 // cria jogo
-const createJogoService = (novoJogo) => {
-  const novoId = Jogos.length + 1;
-  novoJogo.id = novoId;
-  Jogos.push(novoJogo);
+const createJogoService = async (novoJogo) => {
+const newjogo = await Jogos.create(novoJogo)
   
-  return novoJogo;
+  return newjogo;
 };
 // editar jogo
-const editarJogoService = (idJogo, EditaJogo)=>{
-  EditaJogo['id'] = idJogo;
-  const jogoIndex = Jogos.findIndex((jogo) => jogo.id == idJogo);
-  Jogos[jogoIndex] = EditaJogo;
-  return EditaJogo;
+const editarJogoService = async (idJogo, EditaJogo)=>{
+ const jogoEdita = await Jogos.findByIdAndUpdate(idJogo, EditaJogo);
+  return jogoEdita;
 };
 // delete jogo 
-const deleteJogoService = (idJogoDelete) => {
-  const jogoIndex = Jogos.findIndex((jogo) => jogo.id == idJogoDelete);
-  return Jogos.splice(jogoIndex, 1);
+const deleteJogoService = async (idJogoDelete) => {
+return await Jogos.findByIdAndDelete(idJogoDelete)
 };
 
 module.exports = {
