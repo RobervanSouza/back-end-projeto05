@@ -1,9 +1,9 @@
 const route = require('express').Router();
-const controllerJogos = require("../controllers/jogos.controllers")
+const controllerJogos = require("../jogosxbox/jogos.controllers")
 
 const swaggerUi = require('swagger-ui-express')
 const swaggerDocument = require('../../swagger.json')
-const { validId, validObjectBody } = require('../middleware/jogo.middleware');
+const { validId, validObjectBody } = require('./jogo.middleware');
 
 // rotas swagger
 route.use("/api-docs", swaggerUi.serve)

@@ -2,7 +2,7 @@
 
 
 
-const Jogos = require("../model/Jogo")
+const Jogos = require("./JogoModels")
 
 // todos os jogos
 const findAllJogosService = async () => {

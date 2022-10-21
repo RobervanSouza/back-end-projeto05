@@ -1,4 +1,4 @@
-const jogoService = require('../services/jogos.services');
+const jogoService = require('../jogosxbox/jogos.services');
 const mongoose = require('mongoose');
 
 // todos os jogos
