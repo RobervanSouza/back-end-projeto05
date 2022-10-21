@@ -4,6 +4,7 @@ const connectToDatabase = () => {
   mongoose
     .connect(
      process.env.URI_DATABASE,
+
       {
         useNewUrlParser: true,
         useUnifiedTopology: true,
