@@ -15,7 +15,7 @@
       "description": "API de teste"
     },
     {
-      "url": "falta Heroko",
+      "url": "https://xbox-jogo.herokuapp.com/Jogos",
       "description": "API de produção"
     }
   ],
