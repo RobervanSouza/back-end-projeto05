@@ -11,7 +11,7 @@
   },
   "servers": [
     {
-      "url": "http://localhost:3000/Jogos",
+      "url": "http://localhost:3000",
       "description": "API de teste"
     },
     {
@@ -20,11 +20,122 @@
     }
   ],
   "paths": {
-    "/todos-jogos": {
+    "/users/create": {
+      "post": {
+        "summary": "cria um novo ucuario",
+        "description": "rota para um novo ucuário",
+        "tags": ["Usuarios"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuarios"
+              },
+              "examples": {
+                "Usuarios": {
+                  "value": {
+                    "name": "swagger",
+                    "username": "swaggeroo",
+                    "email": "swagger@gmail.com",
+                    "password": "132eee99045",
+                    "cpf": 434999994,
+                    "isAdmin": "tc388cessssssssaaeate"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "não foi criado usuario"
+          },
+          "201": {
+            "description": "criado usuario",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Usuarios"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/users": {
+      "get": {
+        "summary": "Lista de todos os Usuarios",
+        "description": "Rota de todos os Usuarios",
+        "tags": ["Usuarios"],
+        "security": [{ "bearerAuth": [] }],
+        "responses": {
+          "404": {
+            "description": "Not found"
+          },
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Usuarios"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "summary": "Autentica usuarios",
+        "description": "Rota resposavel autenticar usuarios",
+        "tags": ["Auth"],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Auth"
+              },
+              "examples": {
+                "Auth": {
+                  "value": {
+                    "email": "swagger@gmail.com",
+                    "password": "132eee99045"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "Bad Request"
+          },
+          "201": {
+            "description": "logado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Auth"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/Jogos/todos-jogos": {
       "get": {
         "sumamry": "lista todos os jogos",
         "description": "Rota responsavel por todos os jogos",
         "tags": ["Jogos"],
+        "security": [{ "bearerAuth": [] }],
         "responses": {
           "404": {
             "description": "não encontrado"
@@ -45,7 +156,7 @@
         }
       }
     },
-    "/jogo/{id}": {
+    "/Jogos/jogo/{id}": {
       "get": {
         "sumamry": "lista jogo por ID",
         "description": "Rota responsavel pelo ID",
@@ -75,7 +186,7 @@
         }
       }
     },
-    "/create": {
+    "/Jogos/create": {
       "post": {
         "sumamry": " cadastrar jogo",
         "description": "Rota responsavel por criar jogo",
@@ -121,7 +232,7 @@
         }
       }
     },
-    "/update/{id}": {
+    "/Jogos/update/{id}": {
       "put": {
         "sumamry": "Editar jogo pelo Id",
         "description": "Rota responsavel por editar jogo",
@@ -134,15 +245,15 @@
             "required": true
           }
         ],
-        "requestBody":{
-          "content":{
-            "application/json":{
-              "schema":{
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
                 "$ref": "#/components/schemas/Jogos"
               },
-              "examples":{
-                "Jogos":{
-                  "value":{
+              "examples": {
+                "Jogos": {
+                  "value": {
                     "nome": "editado no codigo",
                     "categoria": "ddd",
                     "description": "dd",
@@ -156,16 +267,16 @@
               }
             }
           }
-        }, 
-        "responses":{
+        },
+        "responses": {
           "400": {
             "description": "não foi possível editar jogo"
           },
-          "200":{
+          "200": {
             "description": "jogo editado com sucesso",
-            "content":{
-              "application/json":{
-                "schema":{
+            "content": {
+              "application/json": {
+                "schema": {
                   "type": "object",
                   "$ref": "#/components/schemas/Jogos"
                 }
@@ -175,12 +286,12 @@
         }
       }
     },
-    "/delete/{id}":{
-      "delete":{
+    "/Jogos/delete/{id}": {
+      "delete": {
         "sumamry": "Excluir jogo",
-        "description": "Rota para excluir jogo", 
-        "tags":["Jogos"],
-        "parameters":[
+        "description": "Rota para excluir jogo",
+        "tags": ["Jogos"],
+        "parameters": [
           {
             "name": "id",
             "in": "path",
@@ -188,11 +299,11 @@
             "required": true
           }
         ],
-        "responses":{
-          "400":{
+        "responses": {
+          "400": {
             "description": "não foi possível excluir jogo"
           },
-          "200":{
+          "200": {
             "description": "jogo excluído com sucesso"
           }
         }
@@ -200,7 +311,48 @@
     }
   },
   "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer",
+        "bearerFormat": "JWT"
+      }
+    },
     "schemas": {
+      "Usuarios": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "username": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          },
+          "cpf": {
+            "type": "number"
+          },
+          "isAdmin": {
+            "type": "string"
+          }
+        }
+      },
+      "Auth": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string"
+          },
+          "password": {
+            "type": "string"
+          }
+        }
+      },
       "Jogos": {
         "type": "object",
         "properties": {
