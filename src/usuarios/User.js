@@ -44,3 +44,15 @@ UserSchema.pre('save', async function (next) {
 const User = mongoose.model('usuarios', UserSchema);
 
 module.exports = User;
+
+
+/* 
+
+const loginController = async(req, res) =>{
+   const { email, password} = req.boby;
+   const user = await authService.loginService(email);
+
+   res.send(user);
+}
+
+*/
