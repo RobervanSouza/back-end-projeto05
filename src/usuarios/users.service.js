@@ -1,6 +1,6 @@
 
 
-const User = require('./User');
+const User = require('../usuarios/User');
 
 const findByEmailUserService = (email) => User.findOne({email: email});
 

@@ -8,8 +8,11 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 app.use('/Jogos', routes);
-const userRoute = require('./usuarios/users.route')
+const userRoute = require('./src/usuarios/users.route')
 app.use('/users', userRoute)
+
+const authRoute = require("./src/auth/auth.route")
+app.use('/auth', authRoute);
 connectToDatabase();
 
 app.listen(port, () => {
