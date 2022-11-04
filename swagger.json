@@ -200,7 +200,7 @@
               "examples": {
                 "Jogos": {
                   "value": {
-                    "nome": "teste swagger",
+                    "name": "teste swagger",
                     "categoria": "ddd",
                     "description": "dd",
                     "imageUrl": "ss",

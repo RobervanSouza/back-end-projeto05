@@ -12,7 +12,7 @@ const validObjectBody = (req, res, next) => {
  const Jogo = req.body;
 
  if (
-   !Jogo.nome ||
+   !Jogo.name ||
    !Jogo.description ||
    !Jogo.categoria ||
    !Jogo.imageUrl ||
