@@ -23,7 +23,7 @@
     "/users/create": {
       "post": {
         "summary": "cria um novo usuario",
-        "description": "rota para um novo ucuário",
+        "description": "rota para um novo usuário",
         "tags": ["Usuarios"],
         "requestBody": {
           "content": {
