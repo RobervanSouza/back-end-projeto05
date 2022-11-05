@@ -22,7 +22,7 @@
   "paths": {
     "/users/create": {
       "post": {
-        "summary": "cria um novo ucuario",
+        "summary": "cria um novo usuario",
         "description": "rota para um novo ucuário",
         "tags": ["Usuarios"],
         "requestBody": {
