@@ -1,8 +1,16 @@
 const userService = require('../usuarios/users.service');
 const authService = require("../auth/auth.service")
 const createUserController = async (req, res) => {
-  const { name, username, email, password, cpf, isAdmin } = req.body;
-  if (!name || !username || !email || !password || !cpf || !isAdmin) {
+  const { name, username, email, password, cpf, isAdmin, imageUrl } = req.body;
+  if (
+    !name ||
+    !username ||
+    !email ||
+    !password ||
+    !cpf ||
+    !isAdmin ||
+    !imageUrl
+  ) {
     return res.status(400).send({ message: 'verifique os campos abaixo' });
   }
   const foundUser = await userService.findByEmailUserService(email);

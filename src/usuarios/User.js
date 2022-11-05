@@ -22,12 +22,17 @@ const UserSchema = new mongoose.Schema({
     select: false,
   },
   cpf: {
-    type: Number,
+    type: String,
     required: true,
     unique: true,
     select: false,
   },
   isAdmin: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  imageUrl: {
     type: String,
     required: true,
     unique: true,

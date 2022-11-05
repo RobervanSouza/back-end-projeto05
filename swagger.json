@@ -38,8 +38,9 @@
                     "username": "swaggeroo",
                     "email": "swagger@gmail.com",
                     "password": "132eee99045",
-                    "cpf": 434999994,
-                    "isAdmin": "tc388cessssssssaaeate"
+                    "cpf": "wrwrwerwe",
+                    "isAdmin": "tc388cessssssssaaeate",
+                    "imageUrl": "tc388cessssssssaaeate"
                   }
                 }
               }
@@ -254,12 +255,12 @@
               "examples": {
                 "Jogos": {
                   "value": {
-                    "nome": "editado no codigo",
+                    "name": "editado no codigo",
                     "categoria": "ddd",
                     "description": "dd",
                     "imageUrl": "ss",
-                    "ano": 55,
-                    "score": 5,
+                    "ano": "fssf",
+                    "score": "rwer",
                     "treiler": "d",
                     "gameplay": "dd"
                   }
@@ -335,9 +336,12 @@
             "type": "string"
           },
           "cpf": {
-            "type": "number"
+            "type": "string"
           },
           "isAdmin": {
+            "type": "string"
+          },
+          "imageUrl": {
             "type": "string"
           }
         }
@@ -356,7 +360,7 @@
       "Jogos": {
         "type": "object",
         "properties": {
-          "nome": {
+          "name": {
             "type": "string"
           },
           "categoria": {
@@ -369,10 +373,10 @@
             "type": "string"
           },
           "ano": {
-            "type": "number"
+            "type": "string"
           },
           "score": {
-            "type": "number"
+            "type": "string"
           },
           "treiler": {
             "type": "string"
