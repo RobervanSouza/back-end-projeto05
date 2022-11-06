@@ -8,7 +8,7 @@ const UserSchema = new mongoose.Schema({
   username: {
     type: String,
     required: true,
-    unique: true,
+   
   },
   email: {
     type: String,
@@ -24,18 +24,17 @@ const UserSchema = new mongoose.Schema({
   cpf: {
     type: String,
     required: true,
-    unique: true,
-    select: false,
+    
   },
   isAdmin: {
     type: String,
     required: true,
-    unique: true,
+   
   },
   imageUrl: {
     type: String,
     required: true,
-    unique: true,
+    
   },
 });
 

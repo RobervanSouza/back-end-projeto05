@@ -91,6 +91,59 @@
         }
       }
     },
+    "/users/update/{id}": {
+      "put": {
+        "sumamry": "Editar jogo pelo Id",
+        "description": "Rota responsavel por editar jogo",
+        "tags": ["Usuarios"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do jogo",
+            "required": true
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/Usuarios"
+              },
+              "examples": {
+                "Usuarios": {
+                  "value": {
+                    "name": "swaggewwr editado swegger",
+                    "username": "swwwaggeroo",
+                    "email": "swaggwwer@gmail.com",
+                    "password": "13ww2eee99045",
+                    "cpf": "wrwrwewwrwe",
+                    "isAdmin": "tc388wwcessssssssaaeate",
+                    "imageUrl": "https://media-rockstargames-com.akamaized.net/tina-uploads/posts/9k922a7212kao3/d6ad28bf10dbe824d2031f0673a59bdd9e044507.jpg"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "400": {
+            "description": "não foi possível editar jogo"
+          },
+          "200": {
+            "description": "jogo editado com sucesso",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "$ref": "#/components/schemas/Usuarios"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
     "/auth/login": {
       "post": {
         "summary": "Autentica usuarios",
