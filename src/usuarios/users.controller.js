@@ -44,7 +44,24 @@ const findAllUserController = async (req, res) => {
   res.send(users)
 };
 
+
+const updateUsuariosController = async (req, res) => {
+  const idUser = req.params.id;
+  const EditaUser = req.body;
+  const UserEditado = await userService.editarUserService(idUser, EditaUser);
+  res.send(UserEditado);
+};
+const deleteUserController = async (req, res) => {
+  const idUserDelete = req.params.id;
+
+  await userService.deleteUserService(idUserDelete);
+  res.send({ message: 'Usuário deletado com sucesso!' });
+};
+
+
 module.exports = {
+  updateUsuariosController,
   createUserController,
   findAllUserController,
+  deleteUserController,
 };
