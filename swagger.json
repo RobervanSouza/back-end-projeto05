@@ -93,14 +93,14 @@
     },
     "/users/update/{id}": {
       "put": {
-        "sumamry": "Editar jogo pelo Id",
-        "description": "Rota responsavel por editar jogo",
+        "sumamry": "Editar usuarios pelo Id",
+        "description": "Rota responsavel por editar usuarios",
         "tags": ["Usuarios"],
         "parameters": [
           {
             "name": "id",
             "in": "path",
-            "description": "ID do jogo",
+            "description": "ID do usuarios",
             "required": true
           }
         ],
@@ -140,6 +140,29 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/users/delete/{id}": {
+      "delete": {
+        "sumamry": "Excluir usuarios",
+        "description": "Rota para excluir usuarios",
+        "tags": ["Usuarios"],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "ID do jogo para deletar",
+            "required": true
+          }
+        ],
+        "responses": {
+          "400": {
+            "description": "não foi possível excluir usuarios"
+          },
+          "200": {
+            "description": "usuarios excluído com sucesso"
           }
         }
       }
