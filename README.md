@@ -1,3 +1,4 @@
 # back-end-projeto05
 
-# api heroku : https://xbox-jogo.herokuapp.com/Jogos/todos-jogos
+
+# api Render : https://api-xbox-game.onrender.com/jogos/api-docs/jogos
